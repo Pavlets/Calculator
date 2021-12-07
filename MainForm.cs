@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Сalculator
 {
     public partial class MainForm : Form
     {
-        static int GetDecimalDigitsCount(double number)
+        static int GetDecimalDigitsanswer(double number)
         {
             string str = number.ToString(new System.Globalization.NumberFormatInfo() { NumberDecimalSeparator = "." });
             return str.Contains(".") ? str.Remove(0, Math.Truncate(number).ToString().Length + 1).Length : 0;
@@ -24,6 +19,7 @@ namespace Сalculator
         string line_b, line_up;
         double num = 0, answer = 0;
         bool comma = false;
+        int bracket_count = 0;
         private void radioButton1_1_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1_1.Checked)
@@ -83,7 +79,7 @@ namespace Сalculator
                 if (!comma)
                     num = num * 10 + 1;
                 else
-                    num += 0.1 / Math.Pow(10, GetDecimalDigitsCount(num));
+                    num += 0.1 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -104,7 +100,7 @@ namespace Сalculator
                 if (!comma)
                     num = num * 10 + 2;
                 else
-                    num += 0.2 / Math.Pow(10, GetDecimalDigitsCount(num));
+                    num += 0.2 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -125,7 +121,7 @@ namespace Сalculator
                 if (!comma)
                     num = num * 10 + 3;
                 else
-                    num += 0.3 / Math.Pow(10, GetDecimalDigitsCount(num));
+                    num += 0.3 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -146,7 +142,7 @@ namespace Сalculator
                 if (!comma)
                     num = num * 10 + 4;
                 else
-                    num += 0.4 / Math.Pow(10, GetDecimalDigitsCount(num));
+                    num += 0.4 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -167,7 +163,7 @@ namespace Сalculator
                 if (!comma)
                     num = num * 10 + 5;
                 else
-                    num += 0.5 / Math.Pow(10, GetDecimalDigitsCount(num));
+                    num += 0.5 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -188,7 +184,7 @@ namespace Сalculator
                 if (!comma)
                     num = num * 10 + 6;
                 else
-                    num += 0.6 / Math.Pow(10, GetDecimalDigitsCount(num));
+                    num += 0.6 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -209,7 +205,7 @@ namespace Сalculator
                 if (!comma)
                     num = num * 10 + 7;
                 else
-                    num += 0.7 / Math.Pow(10, GetDecimalDigitsCount(num));
+                    num += 0.7 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -230,7 +226,7 @@ namespace Сalculator
                 if (!comma)
                     num = num * 10 + 8;
                 else
-                    num += 0.8 / Math.Pow(10, GetDecimalDigitsCount(num));
+                    num += 0.8 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -251,7 +247,7 @@ namespace Сalculator
                 if (!comma)
                     num = num * 10 + 9;
                 else
-                    num += 0.9 / Math.Pow(10, GetDecimalDigitsCount(num));
+                    num += 0.9 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -280,9 +276,46 @@ namespace Сalculator
         {
             if (!comma && line_b.Length < 18)
             {
+                if (label1_b.Text == "0")
+                    line_b = "0";
                 comma = true;
                 line_b += ",";
                 label1_b.Text = line_b;
+            }
+        }
+
+        private void button1_bracket1_Click(object sender, EventArgs e)
+        {
+            if (line_up != "" && line_up[line_up.Length - 1] != ')')
+            {
+                line_up += "(";
+                label1_up.Text = line_up;
+                bracket_count++;
+            }
+            else if(line_up == "")
+            {
+                line_up = "(";
+                label1_up.Text = line_up;
+                bracket_count++;
+            }
+        }
+
+        private void button1_bracket2_Click(object sender, EventArgs e)
+        {
+            if (bracket_count > 0)
+            {
+                if (line_b == "")
+                    line_b = "0";
+                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
+                    line_b = line_b.Remove(line_b.Length - 1);
+                line_up += line_b;
+                line_up += ")";
+                label1_up.Text = line_up;
+                line_b = "";
+                label1_b.Text = "0";
+                num = 0;
+                comma = false;
+                bracket_count--;
             }
         }
 
@@ -304,17 +337,21 @@ namespace Сalculator
 
         private void button1_del_Click(object sender, EventArgs e)
         {
+            bool z = false;
             if (line_b.Length > 0)
             {
+                if (line_b[line_b.Length - 1] == ',')
+                    z = true;
                 line_b = line_b.Remove(line_b.Length - 1);
                 if (line_b.Length > 1 && (line_b[line_b.Length - 1] == ' ' || line_b[line_b.Length - 1] == ','))
                     line_b = line_b.Remove(line_b.Length - 1);
                 if (line_b != "")
                 {
-                    if (num.ToString()[num.ToString().Length - 1] != '.')
-                        num = Double.Parse(num.ToString().Remove(num.ToString().Length - 1));
-                    else
-                        num = Double.Parse(num.ToString().Remove(num.ToString().Length - 2));
+                    if (!z)
+                        if (num.ToString()[num.ToString().Length - 1] != '.')
+                            num = Double.Parse(num.ToString().Remove(num.ToString().Length - 1));
+                        else
+                            num = Double.Parse(num.ToString().Remove(num.ToString().Length - 2));
                     label1_b.Text = line_b;
                 }
                 else
@@ -329,25 +366,233 @@ namespace Сalculator
 
         private void button1_equal_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (line_b == "")
+                    line_b = "0";
+                answer = 0;
+                string line = '+' + label1_up.Text + line_b, line_new = "";
+                int id = 0;
+
+                for (int i = 0; i < line.Length; i++)
+                {
+                    if (line[i] == '+')
+                    {
+                        id = i + 1;
+                        do
+                        {
+                            line_new += line[i + 1];
+                            i++;
+                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                        answer = 0;
+                        answer += Double.Parse(line_new);
+                        line_new = "";
+                    }
+                    else if (line[i] == '-')
+                    {
+                        id = i + 1;
+                        do
+                        {
+                            line_new += line[i + 1];
+                            i++;
+                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                        answer = 0;
+                        answer += Double.Parse(line_new);
+                        line_new = "";
+                    }
+                    else if (line[i] == '*')
+                    {
+                        do
+                        {
+                            line_new += line[i + 1];
+                            i++;
+                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                        line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
+                        answer *= Double.Parse(line_new);
+                        line = line.Insert(id, answer.ToString());
+                        i = -1;
+                        line_new = "";
+                        id = 0;
+                        answer = 0;
+                    }
+                    else if (line[i] == '/')
+                    {
+                        do
+                        {
+                            line_new += line[i + 1];
+                            i++;
+                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                        line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
+                        if (Int32.Parse(line_new) == 0)
+                            throw new ArgumentNullException(paramName: nameof(line_new), message: "0!");
+                        answer /= Double.Parse(line_new);
+                        line = line.Insert(id, answer.ToString());
+                        i = -1;
+                        line_new = "";
+                        id = 0;
+                        answer = 0;
+                    }
+                    else if (line[i] == '%')
+                    {
+                        do
+                        {
+                            line_new += line[i + 1];
+                            i++;
+                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                        line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
+                        if (Int32.Parse(line_new) == 0)
+                            throw new ArgumentNullException(paramName: nameof(line_new), message: "0!");
+                        answer %= Int32.Parse(line_new);
+                        line = line.Insert(id, answer.ToString());
+                        i = -1;
+                        line_new = "";
+                        id = 0;
+                        answer = 0;
+                    }
+                }
+
+                answer = 0;
+                line_new = "";
+
+                for (int i = 0; i < line.Length; i++)
+                {
+                    if (line[i] == '+')
+                    {
+                        do
+                        {
+                            line_new += line[i + 1];
+                            i++;
+                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                        answer += Double.Parse(line_new);
+                        line_new = "";
+                    }
+                    else if (line[i] == '-')
+                    {
+                        do
+                        {
+                            line_new += line[i + 1];
+                            i++;
+                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                        answer -= Double.Parse(line_new);
+                        line_new = "";
+                    }
+                }
+                label1_b.Text = line_b = answer.ToString();
+                if (line_b == "0")
+                    line_b = "";
+                num = answer;
+                bracket_count = 0;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains('0'))
+                    label1_b.Text = "Поділ на 0!";
+                else
+                    label1_b.Text = "Число перевищило всі межі!";
+                num = 0;
+                line_b = "";
+            }
             line_up = "";
             label1_up.Text = "";
-            label1_b.Text = answer.ToString();
-            line_b = answer.ToString();
-            num = answer;
-            answer = 0;
+            if (line_b.Contains(','))
+                comma = true;
         }
 
         private void button1_plus_Click(object sender, EventArgs e)
         {
-            if (line_up != "")
-                answer += num;
-            else
-                answer = num;
+            if (line_b == "")
+                line_b = "0";
+            else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
+                line_b = line_b.Remove(line_b.Length - 1);
             line_up += line_b + "+";
             label1_up.Text = line_up;
             line_b = "";
             label1_b.Text = "0";
             num = 0;
+            comma = false;
+        }
+
+        private void button1_minus_Click(object sender, EventArgs e)
+        {
+            if (line_b == "")
+                line_b = "0";
+            else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
+                line_b = line_b.Remove(line_b.Length - 1);
+            line_up += line_b + "-";
+            label1_up.Text = line_up;
+            line_b = "";
+            label1_b.Text = "0";
+            num = 0;
+            comma = false;
+        }
+
+        private void button1_multiply_Click(object sender, EventArgs e)
+        {
+            if (line_b == "")
+                line_b = "0";
+            else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
+                line_b = line_b.Remove(line_b.Length - 1);
+            line_up += line_b + "*";
+            label1_up.Text = line_up;
+            line_b = "";
+            label1_b.Text = "0";
+            num = 0;
+            comma = false;
+        }
+
+        private void button1_plusminus_Click(object sender, EventArgs e)
+        {
+            if (line_b.Length > 0 && line_b[0] != '-')
+            {
+                line_b = "-" + line_b;
+                label1_b.Text = line_b;
+                num = num - num * 2;
+            }
+            else if (line_b.Length > 1)
+            {
+                line_b = line_b.Remove(0, 1);
+                label1_b.Text = line_b;
+            }
+        }
+
+        private void button1_divide_Click(object sender, EventArgs e)
+        {
+            if (line_b == "")
+                line_b = "0";
+            else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
+                line_b = line_b.Remove(line_b.Length - 1);
+            line_up += line_b + "/";
+            label1_up.Text = line_up;
+            line_b = "";
+            label1_b.Text = "0";
+            num = 0;
+            comma = false;
+        }
+
+        private void button1_mod_Click(object sender, EventArgs e)
+        {
+            if (line_up.Length > 0 && line_up[line_up.Length - 1] != ')' && line_b == "")
+            {
+                if (line_b == "")
+                    line_b = "0";
+                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
+                    line_b = line_b.Remove(line_b.Length - 1);
+                line_up += line_b + "%";
+                label1_up.Text = line_up;
+                line_b = "";
+                label1_b.Text = "0";
+                num = 0;
+                comma = false;
+            }
+            else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')')
+            {
+                line_up += line_b + "%";
+                label1_up.Text = line_up;
+                line_b = "";
+                label1_b.Text = "0";
+                num = 0;
+                comma = false;
+            }
         }
     }
 }

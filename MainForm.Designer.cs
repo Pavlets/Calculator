@@ -31,6 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1_bracket1 = new System.Windows.Forms.Button();
+            this.label1_up = new System.Windows.Forms.Label();
+            this.label1_b = new System.Windows.Forms.Label();
+            this.button1_bracket2 = new System.Windows.Forms.Button();
+            this.button1_mod = new System.Windows.Forms.Button();
+            this.button1_comma = new System.Windows.Forms.Button();
+            this.button1_divide = new System.Windows.Forms.Button();
             this.button1_equal = new System.Windows.Forms.Button();
             this.button1_plus = new System.Windows.Forms.Button();
             this.button1_minus = new System.Windows.Forms.Button();
@@ -53,12 +60,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.radioButton2_2 = new System.Windows.Forms.RadioButton();
             this.radioButton2_1 = new System.Windows.Forms.RadioButton();
-            this.button1_divide = new System.Windows.Forms.Button();
-            this.button1_comma = new System.Windows.Forms.Button();
-            this.button1_mod = new System.Windows.Forms.Button();
-            this.button1_brackets = new System.Windows.Forms.Button();
-            this.label1_b = new System.Windows.Forms.Label();
-            this.label1_up = new System.Windows.Forms.Label();
+            this.button1_plusminus = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -75,9 +77,11 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.tabPage1.Controls.Add(this.button1_plusminus);
+            this.tabPage1.Controls.Add(this.button1_bracket1);
             this.tabPage1.Controls.Add(this.label1_up);
             this.tabPage1.Controls.Add(this.label1_b);
-            this.tabPage1.Controls.Add(this.button1_brackets);
+            this.tabPage1.Controls.Add(this.button1_bracket2);
             this.tabPage1.Controls.Add(this.button1_mod);
             this.tabPage1.Controls.Add(this.button1_comma);
             this.tabPage1.Controls.Add(this.button1_divide);
@@ -103,6 +107,73 @@
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
+            // 
+            // button1_bracket1
+            // 
+            this.button1_bracket1.BackColor = System.Drawing.Color.Black;
+            this.button1_bracket1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.button1_bracket1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            resources.ApplyResources(this.button1_bracket1, "button1_bracket1");
+            this.button1_bracket1.ForeColor = System.Drawing.Color.White;
+            this.button1_bracket1.Name = "button1_bracket1";
+            this.button1_bracket1.UseVisualStyleBackColor = false;
+            this.button1_bracket1.Click += new System.EventHandler(this.button1_bracket1_Click);
+            // 
+            // label1_up
+            // 
+            resources.ApplyResources(this.label1_up, "label1_up");
+            this.label1_up.ForeColor = System.Drawing.Color.White;
+            this.label1_up.Name = "label1_up";
+            // 
+            // label1_b
+            // 
+            resources.ApplyResources(this.label1_b, "label1_b");
+            this.label1_b.ForeColor = System.Drawing.Color.White;
+            this.label1_b.Name = "label1_b";
+            // 
+            // button1_bracket2
+            // 
+            this.button1_bracket2.BackColor = System.Drawing.Color.Black;
+            this.button1_bracket2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.button1_bracket2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            resources.ApplyResources(this.button1_bracket2, "button1_bracket2");
+            this.button1_bracket2.ForeColor = System.Drawing.Color.White;
+            this.button1_bracket2.Name = "button1_bracket2";
+            this.button1_bracket2.UseVisualStyleBackColor = false;
+            this.button1_bracket2.Click += new System.EventHandler(this.button1_bracket2_Click);
+            // 
+            // button1_mod
+            // 
+            this.button1_mod.BackColor = System.Drawing.Color.Black;
+            this.button1_mod.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.button1_mod.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            resources.ApplyResources(this.button1_mod, "button1_mod");
+            this.button1_mod.ForeColor = System.Drawing.Color.White;
+            this.button1_mod.Name = "button1_mod";
+            this.button1_mod.UseVisualStyleBackColor = false;
+            this.button1_mod.Click += new System.EventHandler(this.button1_mod_Click);
+            // 
+            // button1_comma
+            // 
+            this.button1_comma.BackColor = System.Drawing.Color.Black;
+            this.button1_comma.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.button1_comma.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            resources.ApplyResources(this.button1_comma, "button1_comma");
+            this.button1_comma.ForeColor = System.Drawing.Color.White;
+            this.button1_comma.Name = "button1_comma";
+            this.button1_comma.UseVisualStyleBackColor = false;
+            this.button1_comma.Click += new System.EventHandler(this.button1_comma_Click);
+            // 
+            // button1_divide
+            // 
+            this.button1_divide.BackColor = System.Drawing.Color.Black;
+            this.button1_divide.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.button1_divide.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            resources.ApplyResources(this.button1_divide, "button1_divide");
+            this.button1_divide.ForeColor = System.Drawing.Color.White;
+            this.button1_divide.Name = "button1_divide";
+            this.button1_divide.UseVisualStyleBackColor = false;
+            this.button1_divide.Click += new System.EventHandler(this.button1_divide_Click);
             // 
             // button1_equal
             // 
@@ -135,6 +206,7 @@
             this.button1_minus.ForeColor = System.Drawing.Color.White;
             this.button1_minus.Name = "button1_minus";
             this.button1_minus.UseVisualStyleBackColor = false;
+            this.button1_minus.Click += new System.EventHandler(this.button1_minus_Click);
             // 
             // button1_multiply
             // 
@@ -145,6 +217,7 @@
             this.button1_multiply.ForeColor = System.Drawing.Color.White;
             this.button1_multiply.Name = "button1_multiply";
             this.button1_multiply.UseVisualStyleBackColor = false;
+            this.button1_multiply.Click += new System.EventHandler(this.button1_multiply_Click);
             // 
             // button1_del
             // 
@@ -335,58 +408,16 @@
             this.radioButton2_1.UseVisualStyleBackColor = true;
             this.radioButton2_1.CheckedChanged += new System.EventHandler(this.radioButton2_1_CheckedChanged);
             // 
-            // button1_divide
+            // button1_plusminus
             // 
-            this.button1_divide.BackColor = System.Drawing.Color.Black;
-            this.button1_divide.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.button1_divide.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            resources.ApplyResources(this.button1_divide, "button1_divide");
-            this.button1_divide.ForeColor = System.Drawing.Color.White;
-            this.button1_divide.Name = "button1_divide";
-            this.button1_divide.UseVisualStyleBackColor = false;
-            // 
-            // button1_comma
-            // 
-            this.button1_comma.BackColor = System.Drawing.Color.Black;
-            this.button1_comma.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.button1_comma.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            resources.ApplyResources(this.button1_comma, "button1_comma");
-            this.button1_comma.ForeColor = System.Drawing.Color.White;
-            this.button1_comma.Name = "button1_comma";
-            this.button1_comma.UseVisualStyleBackColor = false;
-            this.button1_comma.Click += new System.EventHandler(this.button1_comma_Click);
-            // 
-            // button1_mod
-            // 
-            this.button1_mod.BackColor = System.Drawing.Color.Black;
-            this.button1_mod.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.button1_mod.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            resources.ApplyResources(this.button1_mod, "button1_mod");
-            this.button1_mod.ForeColor = System.Drawing.Color.White;
-            this.button1_mod.Name = "button1_mod";
-            this.button1_mod.UseVisualStyleBackColor = false;
-            // 
-            // button1_brackets
-            // 
-            this.button1_brackets.BackColor = System.Drawing.Color.Black;
-            this.button1_brackets.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.button1_brackets.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            resources.ApplyResources(this.button1_brackets, "button1_brackets");
-            this.button1_brackets.ForeColor = System.Drawing.Color.White;
-            this.button1_brackets.Name = "button1_brackets";
-            this.button1_brackets.UseVisualStyleBackColor = false;
-            // 
-            // label1_b
-            // 
-            resources.ApplyResources(this.label1_b, "label1_b");
-            this.label1_b.ForeColor = System.Drawing.Color.White;
-            this.label1_b.Name = "label1_b";
-            // 
-            // label1_up
-            // 
-            resources.ApplyResources(this.label1_up, "label1_up");
-            this.label1_up.ForeColor = System.Drawing.Color.White;
-            this.label1_up.Name = "label1_up";
+            this.button1_plusminus.BackColor = System.Drawing.Color.Black;
+            this.button1_plusminus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.button1_plusminus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            resources.ApplyResources(this.button1_plusminus, "button1_plusminus");
+            this.button1_plusminus.ForeColor = System.Drawing.Color.White;
+            this.button1_plusminus.Name = "button1_plusminus";
+            this.button1_plusminus.UseVisualStyleBackColor = false;
+            this.button1_plusminus.Click += new System.EventHandler(this.button1_plusminus_Click);
             // 
             // MainForm
             // 
@@ -397,7 +428,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.ShowIcon = false;
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -435,10 +465,12 @@
         private System.Windows.Forms.Button button1_multiply;
         private System.Windows.Forms.Label label1_up;
         private System.Windows.Forms.Label label1_b;
-        private System.Windows.Forms.Button button1_brackets;
+        private System.Windows.Forms.Button button1_bracket2;
         private System.Windows.Forms.Button button1_mod;
         private System.Windows.Forms.Button button1_comma;
         private System.Windows.Forms.Button button1_divide;
+        private System.Windows.Forms.Button button1_bracket1;
+        private System.Windows.Forms.Button button1_plusminus;
     }
 }
 
