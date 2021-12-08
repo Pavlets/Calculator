@@ -567,6 +567,106 @@ namespace Сalculator
             AddSign("/");
         }
 
+        private void button1_donate_Click(object sender, EventArgs e)
+        {
+            label1_b.Text = "1234 5678 9123 1234";
+        }
+
+        private void button1_surprise_Click(object sender, EventArgs e)
+        {
+            label1_b.Text = "SURPRISE!!!٩(◕‿◕)۶";
+        }
+
+        private void button1_root_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (label1_b.Text == "0")
+                    line_b = "0";
+                if (double.Parse(line_b) < 0)
+                    throw new Exception();
+                line_b = Math.Sqrt(double.Parse(line_b)).ToString();
+                label1_b.Text = line_b;
+            }
+            catch (Exception ex)
+            {
+                label1_b.Text = "Корінь негативного числа!";
+            }
+        }
+
+        private void label1_b_TextChanged(object sender, EventArgs e)
+        {
+            if (label1_b.Text.Contains(','))
+                comma = true;
+            else
+                comma = false;
+            if (line_b.Contains('E'))
+                label1_b.Text = "Число перевищило всі межі!";
+        }
+
+        private void button1_square_Click(object sender, EventArgs e)
+        {
+            line_b = (double.Parse(line_b) * double.Parse(line_b)).ToString();
+            label1_b.Text = line_b;
+        }
+
+        private void button1_pi_Click(object sender, EventArgs e)
+        {
+            line_b = Math.PI.ToString();
+            label1_b.Text = line_b;
+        }
+
+        private void button1_sin_Click(object sender, EventArgs e)
+        {
+            line_b = Math.Sin(double.Parse(line_b)).ToString();
+            label1_b.Text = line_b;
+        }
+
+        private void button1_cos_Click(object sender, EventArgs e)
+        {
+            line_b = Math.Cos(double.Parse(line_b)).ToString();
+            label1_b.Text = line_b;
+        }
+
+        private void button1_tan_Click(object sender, EventArgs e)
+        {
+            line_b = Math.Tan(double.Parse(line_b)).ToString();
+            label1_b.Text = line_b;
+        }
+
+        private void button1_log_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (double.Parse(line_b) < 0)
+                    throw new Exception();
+                line_b = Math.Log(double.Parse(line_b)).ToString();
+                label1_b.Text = line_b;
+            }
+            catch (Exception ex)
+            {
+                label1_b.Text = "Логарифм негативного числа!";
+            }
+        }
+
+        private void button1_n_Click(object sender, EventArgs e)
+        {
+            if (!comma && line_b != "" && line_b[0] != '-') 
+            {
+                int a = Int32.Parse(line_b);
+                int aa = 1;
+                for (int i = 2; i <= a; i++)
+                    aa *= i;
+                line_b = aa.ToString();
+                label1_b.Text = line_b;
+                if (line_b == "0")
+                {
+                    label1_b.Text = "Число перевищило всі межі!";
+                    line_b = "";
+                }
+            }
+        }
+
         private void button1_mod_Click(object sender, EventArgs e)
         {
             AddSign("%");
