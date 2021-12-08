@@ -7,17 +7,12 @@ namespace Сalculator
 {
     public partial class MainForm : Form
     {
-        static int GetDecimalDigitsanswer(double number)
-        {
-            string str = number.ToString(new System.Globalization.NumberFormatInfo() { NumberDecimalSeparator = "." });
-            return str.Contains(".") ? str.Remove(0, Math.Truncate(number).ToString().Length + 1).Length : 0;
-        }
         public MainForm()
         {
             InitializeComponent();
         }
         string line_b, line_up;
-        double num = 0, answer = 0;
+        double answer = 0;
         bool comma = false;
         int bracket_count = 0;
         private void radioButton1_1_CheckedChanged(object sender, EventArgs e)
@@ -76,10 +71,6 @@ namespace Сalculator
                 }
                 line_b += "1";
                 label1_b.Text = line_b;
-                if (!comma)
-                    num = num * 10 + 1;
-                else
-                    num += 0.1 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -97,10 +88,6 @@ namespace Сalculator
                 }
                 line_b += "2";
                 label1_b.Text = line_b;
-                if (!comma)
-                    num = num * 10 + 2;
-                else
-                    num += 0.2 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -118,10 +105,6 @@ namespace Сalculator
                 }
                 line_b += "3";
                 label1_b.Text = line_b;
-                if (!comma)
-                    num = num * 10 + 3;
-                else
-                    num += 0.3 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -139,10 +122,6 @@ namespace Сalculator
                 }
                 line_b += "4";
                 label1_b.Text = line_b;
-                if (!comma)
-                    num = num * 10 + 4;
-                else
-                    num += 0.4 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -160,10 +139,6 @@ namespace Сalculator
                 }
                 line_b += "5";
                 label1_b.Text = line_b;
-                if (!comma)
-                    num = num * 10 + 5;
-                else
-                    num += 0.5 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -181,10 +156,6 @@ namespace Сalculator
                 }
                 line_b += "6";
                 label1_b.Text = line_b;
-                if (!comma)
-                    num = num * 10 + 6;
-                else
-                    num += 0.6 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -202,10 +173,6 @@ namespace Сalculator
                 }
                 line_b += "7";
                 label1_b.Text = line_b;
-                if (!comma)
-                    num = num * 10 + 7;
-                else
-                    num += 0.7 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -223,10 +190,6 @@ namespace Сalculator
                 }
                 line_b += "8";
                 label1_b.Text = line_b;
-                if (!comma)
-                    num = num * 10 + 8;
-                else
-                    num += 0.8 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -244,10 +207,6 @@ namespace Сalculator
                 }
                 line_b += "9";
                 label1_b.Text = line_b;
-                if (!comma)
-                    num = num * 10 + 9;
-                else
-                    num += 0.9 / Math.Pow(10, GetDecimalDigitsanswer(num));
             }
         }
 
@@ -262,11 +221,6 @@ namespace Сalculator
                 else if (line_b.Length == 3 && !comma)
                 {
                     line_b += " ";
-                }
-                if (!comma)
-                {
-                    num = num * 10;
-                    line_b += "0";
                 }
                 label1_b.Text = line_b;
             }
@@ -292,7 +246,7 @@ namespace Сalculator
                 label1_up.Text = line_up;
                 bracket_count++;
             }
-            else if(line_up == "")
+            else if (line_up == "")
             {
                 line_up = "(";
                 label1_up.Text = line_up;
@@ -313,7 +267,6 @@ namespace Сalculator
                 label1_up.Text = line_up;
                 line_b = "";
                 label1_b.Text = "0";
-                num = 0;
                 comma = false;
                 bracket_count--;
             }
@@ -321,7 +274,6 @@ namespace Сalculator
 
         private void button1_C_Click(object sender, EventArgs e)
         {
-            num = 0;
             line_b = "";
             label1_b.Text = "0";
             line_up = "";
@@ -330,7 +282,6 @@ namespace Сalculator
 
         private void button1_CE_Click(object sender, EventArgs e)
         {
-            num = 0;
             line_b = "";
             label1_b.Text = "0";
         }
@@ -347,20 +298,19 @@ namespace Сalculator
                     line_b = line_b.Remove(line_b.Length - 1);
                 if (line_b != "")
                 {
-                    if (!z)
-                        if (num.ToString()[num.ToString().Length - 1] != '.')
-                            num = Double.Parse(num.ToString().Remove(num.ToString().Length - 1));
-                        else
-                            num = Double.Parse(num.ToString().Remove(num.ToString().Length - 2));
                     label1_b.Text = line_b;
                 }
                 else
                 {
-                    num = 0;
                     label1_b.Text = "0";
                 }
                 if (comma && !line_b.Contains(','))
                     comma = false;
+                if(line_b == "-")
+                {
+                    line_b = "";
+                    label1_b.Text = "0";
+                }
             }
         }
 
@@ -480,7 +430,6 @@ namespace Сalculator
                 label1_b.Text = line_b = answer.ToString();
                 if (line_b == "0")
                     line_b = "";
-                num = answer;
                 bracket_count = 0;
             }
             catch (Exception ex)
@@ -489,7 +438,6 @@ namespace Сalculator
                     label1_b.Text = "Поділ на 0!";
                 else
                     label1_b.Text = "Число перевищило всі межі!";
-                num = 0;
                 line_b = "";
             }
             line_up = "";
@@ -508,7 +456,6 @@ namespace Сalculator
             label1_up.Text = line_up;
             line_b = "";
             label1_b.Text = "0";
-            num = 0;
             comma = false;
         }
 
@@ -522,7 +469,6 @@ namespace Сalculator
             label1_up.Text = line_up;
             line_b = "";
             label1_b.Text = "0";
-            num = 0;
             comma = false;
         }
 
@@ -536,7 +482,6 @@ namespace Сalculator
             label1_up.Text = line_up;
             line_b = "";
             label1_b.Text = "0";
-            num = 0;
             comma = false;
         }
 
@@ -546,7 +491,6 @@ namespace Сalculator
             {
                 line_b = "-" + line_b;
                 label1_b.Text = line_b;
-                num = num - num * 2;
             }
             else if (line_b.Length > 1)
             {
@@ -565,7 +509,6 @@ namespace Сalculator
             label1_up.Text = line_up;
             line_b = "";
             label1_b.Text = "0";
-            num = 0;
             comma = false;
         }
 
@@ -581,7 +524,6 @@ namespace Сalculator
                 label1_up.Text = line_up;
                 line_b = "";
                 label1_b.Text = "0";
-                num = 0;
                 comma = false;
             }
             else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')')
@@ -590,7 +532,6 @@ namespace Сalculator
                 label1_up.Text = line_up;
                 line_b = "";
                 label1_b.Text = "0";
-                num = 0;
                 comma = false;
             }
         }
