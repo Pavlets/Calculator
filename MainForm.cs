@@ -15,6 +15,66 @@ namespace Сalculator
         double answer = 0;
         bool comma = false;
         int bracket_count = 0;
+        void AddSign(string sign)
+        {
+            if (line_up.Length == 0)
+            {
+                if (line_b == "")
+                    line_b = "0";
+                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
+                    line_b = line_b.Remove(line_b.Length - 1);
+                line_b = line_b.Replace(" ", "");
+                line_up += line_b + sign;
+                label1_up.Text = line_up;
+                line_b = "";
+                label1_b.Text = "0";
+                comma = false;
+            }
+            else if (line_up.Length > 0 && line_up[line_up.Length - 1] != ')')
+            {
+                if (line_b == "")
+                    line_b = "0";
+                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
+                    line_b = line_b.Remove(line_b.Length - 1);
+                line_b = line_b.Replace(" ", "");
+                line_up += line_b + sign;
+                label1_up.Text = line_up;
+                line_b = "";
+                label1_b.Text = "0";
+                comma = false;
+            }
+            else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')' && line_b != "")
+            {
+                if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
+                    line_b = line_b.Remove(line_b.Length - 1);
+                line_b = line_b.Replace(" ", "");
+                line_up += "*" + line_b + sign;
+                label1_up.Text = line_up;
+                line_b = "";
+                label1_b.Text = "0";
+                comma = false;
+            }
+            else
+            {
+                line_up += sign;
+                label1_up.Text = line_up;
+            }
+
+        }
+
+        void AddNumber(string num)
+        {
+            if (line_b.Length < 19)
+            {
+                if (((line_b.Length > 6 && line_b[line_b.Length - 4] == ' ') || line_b.Length == 3) && !comma)
+                {
+                    line_b += " ";
+                }
+                line_b += num;
+                label1_b.Text = line_b;
+            }
+        }
+
         private void radioButton1_1_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1_1.Checked)
@@ -59,167 +119,53 @@ namespace Сalculator
 
         private void button1_1_Click(object sender, EventArgs e)
         {
-            if (line_b.Length < 19)
-            {
-                if (((line_b.Length > 6 && line_b[line_b.Length - 4] == ' ') || line_b.Length == 3) && !comma)
-                {
-                    line_b += " ";
-                }
-                line_b += "1";
-                label1_b.Text = line_b;
-            }
+            AddNumber("1");
         }
 
         private void button1_2_Click(object sender, EventArgs e)
         {
-            if (line_b.Length < 19)
-            {
-                if (line_b.Length > 6 && line_b[line_b.Length - 4] == ' ' && !comma)
-                {
-                    line_b += " ";
-                }
-                else if (line_b.Length == 3 && !comma)
-                {
-                    line_b += " ";
-                }
-                line_b += "2";
-                label1_b.Text = line_b;
-            }
+            AddNumber("2");
         }
 
         private void button1_3_Click(object sender, EventArgs e)
         {
-            if (line_b.Length < 19)
-            {
-                if (line_b.Length > 6 && line_b[line_b.Length - 4] == ' ' && !comma)
-                {
-                    line_b += " ";
-                }
-                else if (line_b.Length == 3 && !comma)
-                {
-                    line_b += " ";
-                }
-                line_b += "3";
-                label1_b.Text = line_b;
-            }
+            AddNumber("3");
         }
 
         private void button1_4_Click(object sender, EventArgs e)
         {
-            if (line_b.Length < 19)
-            {
-                if (line_b.Length > 6 && line_b[line_b.Length - 4] == ' ' && !comma)
-                {
-                    line_b += " ";
-                }
-                else if (line_b.Length == 3 && !comma)
-                {
-                    line_b += " ";
-                }
-                line_b += "4";
-                label1_b.Text = line_b;
-            }
+            AddNumber("4");
         }
 
         private void button1_5_Click(object sender, EventArgs e)
         {
-            if (line_b.Length < 19)
-            {
-                if (line_b.Length > 6 && line_b[line_b.Length - 4] == ' ' && !comma)
-                {
-                    line_b += " ";
-                }
-                else if (line_b.Length == 3 && !comma)
-                {
-                    line_b += " ";
-                }
-                line_b += "5";
-                label1_b.Text = line_b;
-            }
+            AddNumber("5");
         }
 
         private void button1_6_Click(object sender, EventArgs e)
         {
-            if (line_b.Length < 19)
-            {
-                if (line_b.Length > 6 && line_b[line_b.Length - 4] == ' ' && !comma)
-                {
-                    line_b += " ";
-                }
-                else if (line_b.Length == 3 && !comma)
-                {
-                    line_b += " ";
-                }
-                line_b += "6";
-                label1_b.Text = line_b;
-            }
+            AddNumber("6");
         }
 
         private void button1_7_Click(object sender, EventArgs e)
         {
-            if (line_b.Length < 19)
-            {
-                if (line_b.Length > 6 && line_b[line_b.Length - 4] == ' ' && !comma)
-                {
-                    line_b += " ";
-                }
-                else if (line_b.Length == 3 && !comma)
-                {
-                    line_b += " ";
-                }
-                line_b += "7";
-                label1_b.Text = line_b;
-            }
+            AddNumber("7");
         }
 
         private void button1_8_Click(object sender, EventArgs e)
         {
-            if (line_b.Length < 19)
-            {
-                if (line_b.Length > 6 && line_b[line_b.Length - 4] == ' ' && !comma)
-                {
-                    line_b += " ";
-                }
-                else if (line_b.Length == 3 && !comma)
-                {
-                    line_b += " ";
-                }
-                line_b += "8";
-                label1_b.Text = line_b;
-            }
+            AddNumber("8");
         }
 
         private void button1_9_Click(object sender, EventArgs e)
         {
-            if (line_b.Length < 19)
-            {
-                if (line_b.Length > 6 && line_b[line_b.Length - 4] == ' ' && !comma)
-                {
-                    line_b += " ";
-                }
-                else if (line_b.Length == 3 && !comma)
-                {
-                    line_b += " ";
-                }
-                line_b += "9";
-                label1_b.Text = line_b;
-            }
+            AddNumber("9");
         }
 
         private void button1_0_Click(object sender, EventArgs e)
         {
-            if (line_b.Length < 19)
-            {
-                if (line_b.Length > 6 && line_b[line_b.Length - 4] == ' ' && !comma)
-                {
-                    line_b += " ";
-                }
-                else if (line_b.Length == 3 && !comma)
-                {
-                    line_b += " ";
-                }
-                label1_b.Text = line_b;
-            }
+            if (line_b != "")
+                AddNumber("0");
         }
 
         private void button1_comma_Click(object sender, EventArgs e)
@@ -247,6 +193,7 @@ namespace Сalculator
                 label1_b.Text = line_b;
             }
         }
+
         private void button1_bracket1_Click(object sender, EventArgs e)
         {
             if (line_up != "" && line_up[line_up.Length - 1] != ')')
@@ -297,11 +244,8 @@ namespace Сalculator
 
         private void button1_del_Click(object sender, EventArgs e)
         {
-            bool z = false;
             if (line_b.Length > 0)
             {
-                if (line_b[line_b.Length - 1] == ',')
-                    z = true;
                 line_b = line_b.Remove(line_b.Length - 1);
                 if (line_b.Length > 1 && (line_b[line_b.Length - 1] == ' ' || line_b[line_b.Length - 1] == ','))
                     line_b = line_b.Remove(line_b.Length - 1);
@@ -320,6 +264,8 @@ namespace Сalculator
                     line_b = "";
                     label1_b.Text = "0";
                 }
+                if (line_b == "0")
+                    line_b = "";
             }
         }
 
@@ -457,200 +403,27 @@ namespace Сalculator
 
         private void button1_plus_Click(object sender, EventArgs e)
         {
-            if (line_up.Length == 0)
-            {
-                if (line_b == "")
-                    line_b = "0";
-                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
-                    line_b = line_b.Remove(line_b.Length - 1);
-                line_b = line_b.Replace(" ", "");
-                line_up += line_b + "+";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
-            else if (line_up.Length > 0 && line_up[line_up.Length - 1] != ')')
-            {
-                if (line_b == "")
-                    line_b = "0";
-                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
-                    line_b = line_b.Remove(line_b.Length - 1);
-                line_b = line_b.Replace(" ", "");
-                line_up += line_b + "+";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
-            else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')' && line_b != "")
-            {
-                if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
-                    line_b = line_b.Remove(line_b.Length - 1);
-                line_b = line_b.Replace(" ", "");
-                line_up += "*" + line_b + "+";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
-            else
-            {
-                line_up += "+";
-                label1_up.Text = line_up;
-            }
+            AddSign("+");
         }
 
         private void button1_minus_Click(object sender, EventArgs e)
         {
-            if (line_up.Length > 0 && line_up[line_up.Length - 1] != ')' && line_b == "")
-            {
-                if (line_b == "")
-                    line_b = "0";
-                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
-                    line_b = line_b.Remove(line_b.Length - 1);
-                line_b = line_b.Replace(" ", "");
-                line_up += line_b + "-";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
-            else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')' && line_b != "")
-            {
-                if (line_b == "")
-                    line_b = "0";
-                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
-                    line_b = line_b.Remove(line_b.Length - 1);
-                line_b = line_b.Replace(" ", "");
-                line_up += "*" + line_b + "-";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
-            else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')')
-            {
-                line_up += line_b + "-";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
+            AddSign("-");
         }
 
         private void button1_multiply_Click(object sender, EventArgs e)
         {
-            if (line_up.Length > 0 && line_up[line_up.Length - 1] != ')' && line_b == "")
-            {
-                if (line_b == "")
-                    line_b = "0";
-                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
-                    line_b = line_b.Remove(line_b.Length - 1);
-                line_b = line_b.Replace(" ", "");
-                line_up += line_b + "*";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
-            else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')' && line_b != "")
-            {
-                if (line_b == "")
-                    line_b = "0";
-                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
-                    line_b = line_b.Remove(line_b.Length - 1);
-                line_b = line_b.Replace(" ", "");
-                line_up += "*" + line_b + "*";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
-            else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')')
-            {
-                line_up += line_b + "*";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
+            AddSign("*");
         }
 
         private void button1_divide_Click(object sender, EventArgs e)
         {
-            if (line_up.Length > 0 && line_up[line_up.Length - 1] != ')' && line_b == "")
-            {
-                if (line_b == "")
-                    line_b = "0";
-                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
-                    line_b = line_b.Remove(line_b.Length - 1);
-                line_b = line_b.Replace(" ", "");
-                line_up += line_b + "/";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
-            else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')' && line_b != "")
-            {
-                if (line_b == "")
-                    line_b = "0";
-                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
-                    line_b = line_b.Remove(line_b.Length - 1);
-                line_b = line_b.Replace(" ", "");
-                line_up += "*" + line_b + "/";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
-            else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')')
-            {
-                line_up += line_b + "/";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
+            AddSign("/");
         }
 
         private void button1_mod_Click(object sender, EventArgs e)
         {
-            if (line_up.Length > 0 && line_up[line_up.Length - 1] != ')' && line_b == "")
-            {
-                if (line_b == "")
-                    line_b = "0";
-                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
-                    line_b = line_b.Remove(line_b.Length - 1);
-                line_b = line_b.Replace(" ", "");
-                line_up += line_b + "%";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
-            else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')' && line_b != "")
-            {
-                if (line_b == "")
-                    line_b = "0";
-                else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
-                    line_b = line_b.Remove(line_b.Length - 1);
-                line_b = line_b.Replace(" ", "");
-                line_up += "*" + line_b + "%";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
-            else if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')')
-            {
-                line_up += line_b + "%";
-                label1_up.Text = line_up;
-                line_b = "";
-                label1_b.Text = "0";
-                comma = false;
-            }
+            AddSign("%");
         }
     }
 }
