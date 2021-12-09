@@ -121,13 +121,50 @@
   <data name="tabControl.Appearance" type="System.Windows.Forms.TabAppearance, System.Windows.Forms">
     <value>Buttons</value>
   </data>
+  <data name="button.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="button.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Franklin Gothic Medium, 18pt, style=Bold</value>
+  </data>
+  <data name="button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 107</value>
+  </data>
+  <data name="button.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="button.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 286</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="button.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;button.Name" xml:space="preserve">
+    <value>button</value>
+  </data>
+  <data name="&gt;&gt;button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;button.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="button1_donate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
   <data name="button1_donate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button1_donate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Franklin Gothic Medium, 18pt, style=Bold</value>
   </data>
@@ -143,7 +180,6 @@
   <data name="button1_donate.Size" type="System.Drawing.Size, System.Drawing">
     <value>194, 54</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="button1_donate.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
   </data>
@@ -160,7 +196,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_donate.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="button1_surprise.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -199,7 +235,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_surprise.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="button1_cos.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -238,7 +274,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_cos.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="button1_sin.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -277,7 +313,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_sin.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="button1_tan.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -316,7 +352,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_tan.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="button1_log.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -355,7 +391,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_log.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="button1_pi.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -655,7 +691,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_pi.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="button1_n.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -694,7 +730,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_n.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="button1_square.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -870,7 +906,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_square.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="button1_root.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1067,7 +1103,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_root.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="button1_plusminus.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1103,7 +1139,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_plusminus.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="button1_bracket1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1139,7 +1175,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_bracket1.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="label1_up.Font" type="System.Drawing.Font, System.Drawing">
     <value>Franklin Gothic Medium, 12pt, style=Bold</value>
@@ -1169,7 +1205,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;label1_up.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="label1_b.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1178,7 +1214,7 @@
     <value>Franklin Gothic Medium, 24pt, style=Bold</value>
   </data>
   <data name="label1_b.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 63</value>
+    <value>-7, 63</value>
   </data>
   <data name="label1_b.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 5, 5, 5</value>
@@ -1187,7 +1223,7 @@
     <value>No</value>
   </data>
   <data name="label1_b.Size" type="System.Drawing.Size, System.Drawing">
-    <value>506, 37</value>
+    <value>523, 37</value>
   </data>
   <data name="label1_b.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -1208,7 +1244,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;label1_b.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="button1_bracket2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1244,7 +1280,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_bracket2.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="button1_mod.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1280,7 +1316,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_mod.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="button1_comma.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1316,7 +1352,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_comma.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="button1_divide.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1352,7 +1388,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_divide.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="button1_equal.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1388,7 +1424,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_equal.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="button1_plus.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1424,7 +1460,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_plus.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="button1_minus.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1460,7 +1496,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_minus.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="button1_multiply.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1496,7 +1532,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_multiply.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="button1_del.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1995,7 +2031,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_del.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="button1_C.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2031,7 +2067,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_C.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="button1_CE.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2067,7 +2103,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_CE.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>25</value>
   </data>
   <data name="button1_0.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2103,7 +2139,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_0.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>26</value>
   </data>
   <data name="button1_9.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2139,7 +2175,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_9.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>27</value>
   </data>
   <data name="button1_8.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2175,7 +2211,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_8.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>28</value>
   </data>
   <data name="button1_7.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2211,7 +2247,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_7.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>29</value>
   </data>
   <data name="button1_6.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2247,7 +2283,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_6.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>30</value>
   </data>
   <data name="button1_5.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2283,7 +2319,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_5.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>31</value>
   </data>
   <data name="button1_4.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2319,7 +2355,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_4.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>32</value>
   </data>
   <data name="button1_3.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2355,7 +2391,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_3.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>33</value>
   </data>
   <data name="button1_2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2391,7 +2427,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_2.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>34</value>
   </data>
   <data name="button1_1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2424,7 +2460,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;button1_1.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>35</value>
   </data>
   <data name="radioButton1_2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2454,7 +2490,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;radioButton1_2.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>36</value>
   </data>
   <data name="radioButton1_1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2481,7 +2517,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;radioButton1_1.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>37</value>
   </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
@@ -2490,7 +2526,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>560, 398</value>
+    <value>545, 467</value>
   </data>
   <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2577,7 +2613,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>560, 398</value>
+    <value>525, 467</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2601,13 +2637,13 @@
     <value>Constantia, 15.75pt, style=Bold</value>
   </data>
   <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 10</value>
+    <value>-7, -41</value>
   </data>
   <data name="tabControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 1, 1</value>
   </data>
   <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>568, 440</value>
+    <value>553, 509</value>
   </data>
   <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2631,7 +2667,7 @@
     <value>13, 26</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>588, 460</value>
+    <value>524, 404</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Constantia, 15.75pt, style=Bold</value>

@@ -71,6 +71,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.radioButton2_2 = new System.Windows.Forms.RadioButton();
             this.radioButton2_1 = new System.Windows.Forms.RadioButton();
+            this.button = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -87,6 +88,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.tabPage1.Controls.Add(this.button);
             this.tabPage1.Controls.Add(this.button1_donate);
             this.tabPage1.Controls.Add(this.button1_surprise);
             this.tabPage1.Controls.Add(this.button1_cos);
@@ -550,6 +552,16 @@
             this.radioButton2_1.UseVisualStyleBackColor = true;
             this.radioButton2_1.CheckedChanged += new System.EventHandler(this.radioButton2_1_CheckedChanged);
             // 
+            // button
+            // 
+            this.button.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.button, "button");
+            this.button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.button.ForeColor = System.Drawing.Color.White;
+            this.button.Name = "button";
+            this.button.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -612,6 +624,7 @@
         private System.Windows.Forms.Button button1_n;
         private System.Windows.Forms.Button button1_square;
         private System.Windows.Forms.Button button1_root;
+        private System.Windows.Forms.Button button;
     }
 }
 

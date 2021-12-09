@@ -591,6 +591,7 @@ namespace Сalculator
             catch (Exception ex)
             {
                 label1_b.Text = "Корінь негативного числа!";
+                line_b = "";
             }
         }
 
@@ -601,7 +602,10 @@ namespace Сalculator
             else
                 comma = false;
             if (line_b.Contains('E'))
+            {
                 label1_b.Text = "Число перевищило всі межі!";
+                line_b = "";
+            }
         }
 
         private void button1_square_Click(object sender, EventArgs e)
@@ -646,12 +650,13 @@ namespace Сalculator
             catch (Exception ex)
             {
                 label1_b.Text = "Логарифм негативного числа!";
+                line_b = "";
             }
         }
 
         private void button1_n_Click(object sender, EventArgs e)
         {
-            if (!comma && line_b != "" && line_b[0] != '-') 
+            if (!comma && line_b != "" && line_b[0] != '-')
             {
                 int a = Int32.Parse(line_b);
                 int aa = 1;
