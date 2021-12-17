@@ -214,7 +214,7 @@ namespace Сalculator
         {
             if (bracket_count > 0)
             {
-                if (line_b == "")
+                if (line_b == "" && line_up[line_up.Length - 1] != ')')
                     line_b = "0";
                 else if (line_b.Length > 1 && line_b[line_b.Length - 1] == ',')
                     line_b = line_b.Remove(line_b.Length - 1);
@@ -274,264 +274,267 @@ namespace Сalculator
             try
             {
                 string line, line_new = "";
-                line_b = line_b.Replace(" ", "");
-                if (line_b == "")
-                    line_b = "0";
-                if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')' && line_b != "0")
-                    line_b = "*" + line_b;
-                answer = 0;
-                if (line_b != "0")
-                    line = '+' + label1_up.Text + line_b;
-                else
-                    line = '+' + label1_up.Text;
-                int id = 0, id1 = 0, id2 = 0;
+            line_b = line_b.Replace(" ", "");
+            if (line_b == "")
+                line_b = "0";
+            if (line_up.Length > 0 && line_up[line_up.Length - 1] == ')' && line_b != "0")
+                line_b = "*" + line_b;
+            answer = 0;
+            if (line_b != "0")
+                line = '+' + label1_up.Text + line_b;
+            else
+                line = '+' + label1_up.Text;
+            int id = 0, id1 = 0, id2 = 0;
 
 
 
-                line = line.Replace("(", "(+");
+            line = line.Replace("(", "(+");
 
 
-                for (int ii = 0; ii < line.Length; ii++)
+            for (int ii = line.Length - 1; ii >= 0; ii--)
+            {
+                if (line[ii] == '(')
                 {
-                    if (line[ii] == '(')
+                    id1 = ii;
+                    for (int j = line.Length - 1; j > id1; j--)
+                        if (line[j] == ')')
+                            id2 = j;
+                    MessageBox.Show(line);
+                    MessageBox.Show(id1.ToString());
+                    MessageBox.Show(id2.ToString());
+                    for (int i = id1; i <= id2; i++)
                     {
-                        id1 = ii;
-                        for (int j = line.Length - 1; j > id1; j--)
-                            if (line[j] == ')')
-                                id2 = j;
-                        for (int i = id1; i <= id2; i++)
+                        if (line[i] == '+')
                         {
-                            if (line[i] == '+')
+                            id = i + 1;
+                            do
                             {
-                                id = i + 1;
-                                do
-                                {
-                                    line_new += line[i + 1];
-                                    i++;
-                                } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
-                                answer = 0;
-                                answer += Double.Parse(line_new);
-                                line_new = "";
-                            }
-                            else if (line[i] == '-')
-                            {
-                                id = i + 1;
-                                do
-                                {
-                                    line_new += line[i + 1];
-                                    i++;
-                                } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
-                                answer = 0;
-                                answer += Double.Parse(line_new);
-                                line_new = "";
-                            }
-                            else if (line[i] == '*')
-                            {
-                                do
-                                {
-                                    line_new += line[i + 1];
-                                    i++;
-                                } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
-                                line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
-                                answer *= Double.Parse(line_new);
-                                line = line.Insert(id, answer.ToString());
-                                for (int jj = line.Length - 1; jj > -1; jj--)
-                                    if (line[jj] == ')')
-                                        id2 = jj;
-                                i = id1 - 1;
-                                line_new = "";
-                                id = 0;
-                                answer = 0;
-                            }
-                            else if (line[i] == '/')
-                            {
-                                do
-                                {
-                                    line_new += line[i + 1];
-                                    i++;
-                                } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
-                                line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
-                                if (Int32.Parse(line_new) == 0)
-                                    throw new ArgumentNullException(paramName: nameof(line_new), message: "0!");
-                                answer /= Double.Parse(line_new);
-                                line = line.Insert(id, answer.ToString());
-                                for (int jj = line.Length - 1; jj > -1; jj--)
-                                    if (line[jj] == ')')
-                                        id2 = jj;
-                                i = id1 - 1;
-                                line_new = "";
-                                id = 0;
-                                answer = 0;
-                            }
-                            else if (line[i] == '%')
-                            {
-                                do
-                                {
-                                    line_new += line[i + 1];
-                                    i++;
-                                } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
-                                line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
-                                if (Int32.Parse(line_new) == 0)
-                                    throw new ArgumentNullException(paramName: nameof(line_new), message: "0!");
-                                answer %= Int32.Parse(line_new);
-                                line = line.Insert(id, answer.ToString());
-                                for (int jj = line.Length - 1; jj > -1; jj--)
-                                    if (line[jj] == ')')
-                                        id2 = jj;
-                                i = id1 - 1;
-                                line_new = "";
-                                id = 0;
-                                answer = 0;
-                            }
+                                line_new += line[i + 1];
+                                i++;
+                            } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
+                            answer = 0;
+                            answer += Double.Parse(line_new);
+                            line_new = "";
                         }
-
-                        answer = 0;
-                        line_new = "";
-                        for (int jj = line.Length - 1; jj > -1; jj--)
-                            if (line[jj] == ')')
-                                id2 = jj;
-
-                        for (int i = id1; i <= id2; i++)
+                        else if (line[i] == '-')
                         {
-                            if (line[i] == '+')
+                            id = i + 1;
+                            do
                             {
-                                do
-                                {
-                                    line_new += line[i + 1];
-                                    i++;
-                                } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
-                                answer += Double.Parse(line_new);
-                                line_new = "";
-                            }
-                            else if (line[i] == '-')
-                            {
-                                do
-                                {
-                                    line_new += line[i + 1];
-                                    i++;
-                                } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
-                                answer -= Double.Parse(line_new);
-                                line_new = "";
-                            }
+                                line_new += line[i + 1];
+                                i++;
+                            } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
+                            answer = 0;
+                            answer += Double.Parse(line_new);
+                            line_new = "";
                         }
-                        line = line.Remove(id1, id2 - id1 + 1);
-                        line = line.Insert(id1, answer.ToString());
-                        answer = 0;
-                        ii = 0;
+                        else if (line[i] == '*')
+                        {
+                            do
+                            {
+                                line_new += line[i + 1];
+                                i++;
+                            } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
+                            line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
+                            answer *= Double.Parse(line_new);
+                            line = line.Insert(id, answer.ToString());
+                            for (int jj = line.Length - 1; jj > -1; jj--)
+                                if (line[jj] == ')')
+                                    id2 = jj;
+                            i = id1 - 1;
+                            line_new = "";
+                            id = 0;
+                            answer = 0;
+                        }
+                        else if (line[i] == '/')
+                        {
+                            do
+                            {
+                                line_new += line[i + 1];
+                                i++;
+                            } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
+                            line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
+                            if (Int32.Parse(line_new) == 0)
+                                throw new ArgumentNullException(paramName: nameof(line_new), message: "0!");
+                            answer /= Double.Parse(line_new);
+                            line = line.Insert(id, answer.ToString());
+                            for (int jj = line.Length - 1; jj > -1; jj--)
+                                if (line[jj] == ')')
+                                    id2 = jj;
+                            i = id1 - 1;
+                            line_new = "";
+                            id = 0;
+                            answer = 0;
+                        }
+                        else if (line[i] == '%')
+                        {
+                            do
+                            {
+                                line_new += line[i + 1];
+                                i++;
+                            } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
+                            line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
+                            if (Int32.Parse(line_new) == 0)
+                                throw new ArgumentNullException(paramName: nameof(line_new), message: "0!");
+                            answer %= Int32.Parse(line_new);
+                            line = line.Insert(id, answer.ToString());
+                            for (int jj = line.Length - 1; jj > -1; jj--)
+                                if (line[jj] == ')')
+                                    id2 = jj;
+                            i = id1 - 1;
+                            line_new = "";
+                            id = 0;
+                            answer = 0;
+                        }
                     }
+
+                    answer = 0;
+                    line_new = "";
+                    for (int jj = line.Length - 1; jj > -1; jj--)
+                        if (line[jj] == ')')
+                            id2 = jj;
+
+                    for (int i = id1; i <= id2; i++)
+                    {
+                        if (line[i] == '+')
+                        {
+                            do
+                            {
+                                line_new += line[i + 1];
+                                i++;
+                            } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
+                            answer += Double.Parse(line_new);
+                            line_new = "";
+                        }
+                        else if (line[i] == '-')
+                        {
+                            do
+                            {
+                                line_new += line[i + 1];
+                                i++;
+                            } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%' && line[i + 1] != ')');
+                            answer -= Double.Parse(line_new);
+                            line_new = "";
+                        }
+                    }
+                    line = line.Remove(id1, id2 - id1 + 1);
+                    line = line.Insert(id1, answer.ToString());
+                    answer = 0;
+                    ii = line.Length - 1;
                 }
+            }
 
-                line_new = "";
-                id = 0;
+            line_new = "";
+            id = 0;
+            MessageBox.Show(line);
 
-
-                for (int i = 0; i < line.Length; i++)
+            for (int i = 0; i < line.Length; i++)
+            {
+                if (line[i] == '+')
                 {
-                    if (line[i] == '+')
+                    id = i + 1;
+                    do
                     {
-                        id = i + 1;
-                        do
-                        {
-                            line_new += line[i + 1];
-                            i++;
-                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
-                        answer = 0;
-                        answer += Double.Parse(line_new);
-                        line_new = "";
-                    }
-                    else if (line[i] == '-')
-                    {
-                        id = i + 1;
-                        do
-                        {
-                            line_new += line[i + 1];
-                            i++;
-                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
-                        answer = 0;
-                        answer += Double.Parse(line_new);
-                        line_new = "";
-                    }
-                    else if (line[i] == '*')
-                    {
-                        do
-                        {
-                            line_new += line[i + 1];
-                            i++;
-                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
-                        line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
-                        answer *= Double.Parse(line_new);
-                        line = line.Insert(id, answer.ToString());
-                        i = -1;
-                        line_new = "";
-                        id = 0;
-                        answer = 0;
-                    }
-                    else if (line[i] == '/')
-                    {
-                        do
-                        {
-                            line_new += line[i + 1];
-                            i++;
-                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
-                        line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
-                        if (Int32.Parse(line_new) == 0)
-                            throw new ArgumentNullException(paramName: nameof(line_new), message: "0!");
-                        answer /= Double.Parse(line_new);
-                        line = line.Insert(id, answer.ToString());
-                        i = -1;
-                        line_new = "";
-                        id = 0;
-                        answer = 0;
-                    }
-                    else if (line[i] == '%')
-                    {
-                        do
-                        {
-                            line_new += line[i + 1];
-                            i++;
-                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
-                        line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
-                        if (Int32.Parse(line_new) == 0)
-                            throw new ArgumentNullException(paramName: nameof(line_new), message: "0!");
-                        answer %= Int32.Parse(line_new);
-                        line = line.Insert(id, answer.ToString());
-                        i = -1;
-                        line_new = "";
-                        id = 0;
-                        answer = 0;
-                    }
+                        line_new += line[i + 1];
+                        i++;
+                    } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                    answer = 0;
+                    answer += Double.Parse(line_new);
+                    line_new = "";
                 }
-
-                answer = 0;
-                line_new = "";
-
-                for (int i = 0; i < line.Length; i++)
+                else if (line[i] == '-')
                 {
-                    if (line[i] == '+')
+                    id = i + 1;
+                    do
                     {
-                        do
-                        {
-                            line_new += line[i + 1];
-                            i++;
-                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
-                        answer += Double.Parse(line_new);
-                        line_new = "";
-                    }
-                    else if (line[i] == '-')
-                    {
-                        do
-                        {
-                            line_new += line[i + 1];
-                            i++;
-                        } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
-                        answer -= Double.Parse(line_new);
-                        line_new = "";
-                    }
+                        line_new += line[i + 1];
+                        i++;
+                    } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                    answer = 0;
+                    answer += Double.Parse(line_new);
+                    line_new = "";
                 }
-                label1_b.Text = line_b = answer.ToString();
-                if (line_b == "0")
-                    line_b = "";
-                bracket_count = 0;
+                else if (line[i] == '*')
+                {
+                    do
+                    {
+                        line_new += line[i + 1];
+                        i++;
+                    } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                    line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
+                    answer *= Double.Parse(line_new);
+                    line = line.Insert(id, answer.ToString());
+                    i = -1;
+                    line_new = "";
+                    id = 0;
+                    answer = 0;
+                }
+                else if (line[i] == '/')
+                {
+                    do
+                    {
+                        line_new += line[i + 1];
+                        i++;
+                    } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                    line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
+                    if (Int32.Parse(line_new) == 0)
+                        throw new ArgumentNullException(paramName: nameof(line_new), message: "0!");
+                    answer /= Double.Parse(line_new);
+                    line = line.Insert(id, answer.ToString());
+                    i = -1;
+                    line_new = "";
+                    id = 0;
+                    answer = 0;
+                }
+                else if (line[i] == '%')
+                {
+                    do
+                    {
+                        line_new += line[i + 1];
+                        i++;
+                    } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                    line = line.Remove(id, line_new.Length + answer.ToString().Length + 1);
+                    if (Int32.Parse(line_new) == 0)
+                        throw new ArgumentNullException(paramName: nameof(line_new), message: "0!");
+                    answer %= Int32.Parse(line_new);
+                    line = line.Insert(id, answer.ToString());
+                    i = -1;
+                    line_new = "";
+                    id = 0;
+                    answer = 0;
+                }
+            }
+
+            answer = 0;
+            line_new = "";
+
+            for (int i = 0; i < line.Length; i++)
+            {
+                if (line[i] == '+')
+                {
+                    do
+                    {
+                        line_new += line[i + 1];
+                        i++;
+                    } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                    answer += Double.Parse(line_new);
+                    line_new = "";
+                }
+                else if (line[i] == '-')
+                {
+                    do
+                    {
+                        line_new += line[i + 1];
+                        i++;
+                    } while (i + 1 < line.Length && line[i + 1] != '+' && line[i + 1] != '-' && line[i + 1] != '*' && line[i + 1] != '/' && line[i + 1] != '%');
+                    answer -= Double.Parse(line_new);
+                    line_new = "";
+                }
+            }
+            label1_b.Text = line_b = answer.ToString();
+            if (line_b == "0")
+                line_b = "";
+            bracket_count = 0;
             }
             catch (Exception ex)
             {

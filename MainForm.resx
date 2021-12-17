@@ -401,7 +401,7 @@
         xUAa4EouKCoB0n+A2CgltTiZgYHRAMjOLi8pAIozzgGyRZKywewNIHZRSJAzkH0EyOZLh7CvgNhJEPYT
         ELsI6Akg+wtIfTqYzcQBNgfClgGxS1IrQPYyOOcXVBZlpmeUKBhaWloqOKbkJ6UqBFcWl6TmFit45iXn
         FxXkFyWWpKYA1ULcBwaCEIWgENMAarTQZKAyAMUDhPU5EBy+jGJnEGIIkFxaVAZlMjIZE+YjzJgjwcDg
-        v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAEzjAABM4wH1zbQO
+        v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAEziAABM4gEnilbq
         AAA7BUlEQVR4Xu3d/2tr1/3n+/mz5gdBfyjkh0IgA4FAIDDhFnoJE8gQyCUQCIFAmE6h3FAogVIIhRIC
         JdPbWyZTQiCUktKbCQ0hISFbkiVblmzZlm3Jtvw19/U+n+VyPs7b5+jLlrTeW88XPHgr75zj4yXLWtrS
         3mv9h++//x4AAATnNgEAQCxuEwAAxOI2AQBALG4TAADE4jYBAEAsbhMAAMTiNgEAQCxuEwAAxOI2AQBA
@@ -740,7 +740,7 @@
         xUAa4EouKCoB0n+A2CgltTiZgYHRAMjOLi8pAIozzgGyRZKywewNIHZRSJAzkH0EyOZLh7CvgNhJEPYT
         ELsI6Akg+wtIfTqYzcQBNgfClgGxS1IrQPYyOOcXVBZlpmeUKBhaWloqOKbkJ6UqBFcWl6TmFit45iXn
         FxXkFyWWpKYA1ULcBwaCEIWgENMAarTQZKAyAMUDhPU5EBy+jGJnEGIIkFxaVAZlMjIZE+YjzJgjwcDg
-        v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAEzjAABM4wH1zbQO
+        v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAEziAABM4gEnilbq
         AAAeF0lEQVR4Xu3d7Yds6bk/8POHLfJiyIshzIsfQ8iLEEIYwhBCGIdDGCHEMEKECBHhiCNCHBEiIhEx
         EpHIMVVd/fy4+7n27r177977d907a0969lzdXf1Q1XWv9fnycdV8JbOqVo2+e1XXWus/Xrx4AQBULi0B
         gLqkJQBQl7QEAOqSlgBAXdISAKhLWgIAdUlLAKAuaQkA1CUtAYC6pCUAUJe0BADqkpYAQF3SEgCoS1oC
@@ -916,7 +916,7 @@
         xUAa4EouKCoB0n+A2CgltTiZgYHRAMjOLi8pAIozzgGyRZKywewNIHZRSJAzkH0EyOZLh7CvgNhJEPYT
         ELsI6Akg+wtIfTqYzcQBNgfClgGxS1IrQPYyOOcXVBZlpmeUKBhaWloqOKbkJ6UqBFcWl6TmFit45iXn
         FxXkFyWWpKYA1ULcBwaCEIWgENMAarTQZKAyAMUDhPU5EBy+jGJnEGIIkFxaVAZlMjIZE+YjzJgjwcDg
-        v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAOoPAADqDwGfDhSR
+        v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAOoOAADqDgFNSfZ1
         AAAi5klEQVR4Xu3d62tke5U/4PnDCs4LwReCMC8EQfCFIAiCIAiCMCADA8IgCCIMgggiiAjDIDIgwyCI
         yE9ERF8oyqSSTtK59CVJ59KddPpyfuvblsd0aqU7l7rsvfbzgadWndV9urN2NfXdVbVr73/68MMPAYCB
         SZsAQG1pEwCoLW0CALWlTQCgtrQJANSWNgGA2tImAFBb2gQAakubAEBtaRMAqC1tAgC1pU0AoLa0CQDU
@@ -2465,6 +2465,9 @@
   <data name="radioButton1_2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="radioButton1_2.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="radioButton1_2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -2613,7 +2616,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>525, 467</value>
+    <value>545, 467</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>

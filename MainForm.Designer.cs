@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button = new System.Windows.Forms.Button();
             this.button1_donate = new System.Windows.Forms.Button();
             this.button1_surprise = new System.Windows.Forms.Button();
             this.button1_cos = new System.Windows.Forms.Button();
@@ -71,7 +72,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.radioButton2_2 = new System.Windows.Forms.RadioButton();
             this.radioButton2_1 = new System.Windows.Forms.RadioButton();
-            this.button = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -129,6 +129,16 @@
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
+            // 
+            // button
+            // 
+            this.button.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.button, "button");
+            this.button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.button.ForeColor = System.Drawing.Color.White;
+            this.button.Name = "button";
+            this.button.UseVisualStyleBackColor = false;
             // 
             // button1_donate
             // 
@@ -551,16 +561,6 @@
             this.radioButton2_1.Name = "radioButton2_1";
             this.radioButton2_1.UseVisualStyleBackColor = true;
             this.radioButton2_1.CheckedChanged += new System.EventHandler(this.radioButton2_1_CheckedChanged);
-            // 
-            // button
-            // 
-            this.button.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.button, "button");
-            this.button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.button.ForeColor = System.Drawing.Color.White;
-            this.button.Name = "button";
-            this.button.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
